@@ -47,10 +47,10 @@
               </p>
               <% if current_user %>
                 <p class="control">
-                  <%= link_to current_user.name, user_path(current_user), class: "button is-white" %>
+                  <%= link_to current_user.email, events_path(current_user), class: "button is-white" %>
                 </p>
                 <p>
-                  <%= link_to "Logout", logout_path, class: "button is-white" %>
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "button is-white" %>
                 </p>
               <% else %>
                 <p class="control">
