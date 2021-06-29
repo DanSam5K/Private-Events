@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   include EventsHelper
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @events = Event.all

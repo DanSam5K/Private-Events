@@ -1,7 +1,35 @@
 class EnrollmentsController < ApplicationController
+  before_action :authenticate_user!
+  # GET /tweeets or /tweeets.json
+  def index
+    @enrollments = Enrollment.all
+    @enrollment = Enrollment.new
+    @users = User.all
+  end
+  
 
-    def create
-    event = Event.find(params[:event_id])
+  # # GET /tweeets/1 or /tweeets/1.json
+  def show; end
+
+  # GET /tweeets/new
+  def new
+    @enrollment = current_user.enrollments.build
+  end
+
+  # # GET /tweeets/1/edit
+  # def edit; end
+
+  # # DELETE /tweeets/1 or /tweeets/1.json
+  # def destroy
+  #   @enrollment.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to enrollments_url, notice: 'enrollment was successfully destroyed.' }
+  #   end
+  # end
+
+
+  def create
+    event = Event.find(params[:id])
     enrollment = Enrollment.new(event_id: event.id, user_id: params[:user_id])
 
     if enrollment.save
@@ -30,7 +58,7 @@ class EnrollmentsController < ApplicationController
   end
 
   def update
-    @event = Event.find(params[:event_id])
+    @event = Event.find(params[:id])
     @enrollment = Enrollment.find_by(event_id: params[:event_id], user_id: current_user.id)
     if @enrollment && @enrollment.invited?
       @enrollment.accepted!
