@@ -1,0 +1,52 @@
+<div class="section">
+  <div class="container">
+	  <div class="columns is-centered">
+      <div class="column is-9">
+        <h2 class="title is-2 is-spaced has-text-centered"><%= User.name %>'s Profile</h2>
+	      <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h3 class="subtitle is-3 has-text-centered">Hosted Events: <%= Event.count %></h3>
+            <ul>
+              <% if Event.nil? %>
+                <p>User is not hosting</p>
+              <% else %>
+                <% Event.all do |event| %>
+                  <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="column has-text-centered">
+            <h3 class="subtitle is-3">Upcoming Events: <%= Event.where('date >= ?', Date.today).count %></h3>
+            <ul>
+              <% if Event.where('date >= ?', Date.today).count.zero? %>
+                <p>No planned parties</p>
+              <% else %>
+                <% Event.where('date >= ?', Date.today).each do |event| %>
+                  <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="column has-text-centered">
+            <h3 class="subtitle is-3 has-text-centered">Attended Events: <%= Event.where('date < ?', Date.today).count %></h3>
+            <ul>
+              <% if Event.nil? %>
+                <p>User is not partying</p>
+              <% else %>
+                <% Event.where('date < ?', Date.today).each do |event| %>
+                  <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
