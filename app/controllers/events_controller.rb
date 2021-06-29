@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   include EventsHelper
   # before_action :authenticate_user!
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: %i[show index]
 
   def index
     @events = Event.all
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
       flash[:success] = "Event '#{@event.name}' created!"
       redirect_to @event
     else
-      flash[:alert] = "Some error!"
+      flash[:alert] = 'Some error!'
       render 'new'
     end
   end
