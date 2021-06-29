@@ -1,32 +1,16 @@
 class EnrollmentsController < ApplicationController
   before_action :authenticate_user!
-  # GET /tweeets or /tweeets.json
+  
   def index
     @enrollments = Enrollment.all
     @enrollment = Enrollment.new
     @users = User.all
   end
   
-
-  # # GET /tweeets/1 or /tweeets/1.json
-  def show; end
-
-  # GET /tweeets/new
+  # GET /enrollment/new
   def new
     @enrollment = current_user.enrollments.build
   end
-
-  # # GET /tweeets/1/edit
-  # def edit; end
-
-  # # DELETE /tweeets/1 or /tweeets/1.json
-  # def destroy
-  #   @enrollment.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to enrollments_url, notice: 'enrollment was successfully destroyed.' }
-  #   end
-  # end
-
 
   def create
     event = Event.find(params[:id])
