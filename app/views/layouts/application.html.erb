@@ -50,8 +50,12 @@
                   <%= link_to current_user.name, events_path(current_user), class: "button is-white" %>
                 </p>
                 <p>
+                  <%= link_to 'Event Profile', user_show_path, class: "button is-white" %></td>
+                </p>
+                <p>
                   <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "button is-white" %>
                 </p>
+                
               <% else %>
                 <p class="control">
                   <%= link_to 'Sign In', new_user_session_path, class: "button is-white" %>
