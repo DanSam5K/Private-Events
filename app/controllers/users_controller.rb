@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # include UsersHelper
+  include EventsHelper
   before_action :authenticate_user!
   def index
     @users = User.all
@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @past_events = previous_events
+    @upcoming_events = upcoming_events
   end
 
   def create
@@ -20,7 +22,5 @@ class UsersController < ApplicationController
   def show
     @all_events = Event.all
     @events = Event.where(user_id: current_user.id)
-    #@past_events = @events.previous_events
-    #@upcoming_events = @events.upcoming_events
   end
 end

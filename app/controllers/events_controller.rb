@@ -5,6 +5,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @past_events = previous_events
+    @upcoming_events = upcoming_events
   end
 
   def show
@@ -25,5 +27,20 @@ class EventsController < ApplicationController
       flash[:alert] = 'Some error!'
       render 'new'
     end
+  end
+
+  private
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:name, :date, :location, :description, :user_id)
+  end
+
+  def previous_events
+    Event.where('date < ?', Time.now)
+  end
+
+  def upcoming_events
+    Event.where('date >= ?', Time.now)
   end
 end

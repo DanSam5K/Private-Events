@@ -20,13 +20,13 @@
     <% @events.each do |event| %>
 
 
-      <% if current_user %>
+      <% if current_user && event.date > Time.now %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.date %></td>
         <td><%= event.location %></td>
         <td><%= event.description %></td>
-        <% if Time.now > event.date %>
+        <% if Time.now < event.date %>
           <td> available </td>
         <% else %>
           <td><%= Enrollment.where(status: event.id).count %></td>
@@ -57,7 +57,7 @@
  <tbody>
     
     <% @events.each do |event| %>
-      <% if current_user %>
+      <% if current_user  && event.date < Time.now %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.date %></td>
