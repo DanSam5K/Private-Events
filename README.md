@@ -6,17 +6,6 @@
 
 > A user can create events. A user can attend many events. An event can be attended by many users. This will require me to model many-to-many relationships and also to be very conscious about my foreign keys and class names.
 
-## Usage 
-
-- Clone the repo: $ git clone
-- Run `bundle install`  in your terminal to install the Ruby gems.
-- Run `rails webpacker:install` or `npm install` to install webpacker
-- Run `rails db:create` to create DB before migration
-- Run `rails db:migrate`  in your terminal to migrate to db databases.
-- Run `$ rails server` to start your local host.
-- In your terminal go to (http://127.0.0.1:3000/) 
-- Sign up for a session and create-events "secrets" or you can just watch them anonymously!
-
 ## BUILT WITH
 
 - Ruby
@@ -24,7 +13,31 @@
 - SQLite3
 - Bulma
 - Devise
+- Integration test Rspec & Capybara
+## Getting Started 
 
+- I've included a gem to improve the ruby coding (you can see how to install it the prerequisites below).
+- I've included linters to improve and cleaning the Ruby code.
+
+### Prerequisites
+
+- Having Ruby (programming language) in your machine. <a href="https://www.ruby-lang.org/en/downloads/">Download Ruby HERE</a>
+- IDE to edit and run the code (I used Visual Studio Code 🔥).
+<a href="https://code.visualstudio.com/Download">Download Visual Studio Code HERE</a>
+
+## Install
+
+To get a local copy up and running follow these simple example steps.
+- Open terminal
+- Clone this project with the command `git clone https://github.com/DanSam5K/Private-Events.git`
+- `cd Private-Events` folder
+- Run `bundle install` in your terminal
+- Run `rails db:migrate` in your terminal
+- Run `rails s` in your terminal to start your local host.
+- In your terminal go to (http://127.0.0.1:3000/) 
+- Sign up for a session and create-events "secrets" or you can just watch them anonymously!
+
+Now, you can start interratcing with application
 ## AUTHORS
 
 👤 **Daniel Samuel**
