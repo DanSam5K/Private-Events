@@ -37,7 +37,7 @@ To get a local copy up and running follow these simple example steps.
 - In your terminal go to (http://127.0.0.1:3000/) 
 - Sign up for a session and create-events "secrets" or you can just watch them anonymously!
 
-Now, you can start interratcing with application
+Now, you can start interacting with application
 ## AUTHORS
 
 👤 **Daniel Samuel**
