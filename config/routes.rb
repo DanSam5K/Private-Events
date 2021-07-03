@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :events
   resources :enrollments
   get 'user/show', action: :show, controller: 'users' 
+  get 'user/index', action: :index, controller: 'users'
   resources :enrollments, only: [:create, :destroy, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

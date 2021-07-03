@@ -1,51 +1,48 @@
-<div class="top">
-  <div class="section">
-    <h2 class="title is-2">Upcoming Events</h2>
-    <div class="columns">
-      <% @events.upcoming.each do |event| %>
-        <div class="column is-3">
-          <div class="card">
-            <header class="card-header">
-              <%= link_to event.name, event_path(event), class: "card-header-title is-centered" %>
-            </header>
-            <div class="card-content">
-              <div class="content has-text-justified">
-                <%= event.description.truncate_words(12) %>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item is-narrow"><%= event.date %></p>
-              <p class="card-footer-item"><%= event.location %></p>
-            </footer>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <div class="box">
+          <h2 class="title is-2 is-spaced has-text-centered mb-6">Guest List</h2>
+    
+          <div class="columns is-centered">
+            <table class="table is-fullwidth is-hoverable">
+              <tbody>
+                <th class="has-text-centered">Name</th>
+                <th class="has-text-centered">Status</th>
+                <th class="has-text-centered">Action</th>
 
-<div class="bottom">
-  <div class="section">
-    <h2 class="title is-2">Past Events</h2>
-    <div class="columns">
-      <% @events.past.each do |event| %>
-        <div class="column is-3">
-          <div class="card">
-            <header class="card-header">
-              <%= link_to event.name, event_path(event), class: "card-header-title is-centered" %>
-            </header>
-            <div class="card-content">
-              <div class="content has-text-justified">
-                <%= event.description.truncate_words(12) %>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item"><%= event.date %></p>
-              <p class="card-footer-item"><%= event.location %></p>
-            </footer>
+            
+                  <tr>
+                    <td class="has-text-centered">
+                      <%=  %>
+                    </td>
+    
+                      <td class="has-text-centered">
+                        <span class="tag is-primary is-medium is-light"><%=  %><span>
+                      </td>
+                
+                      <td></td>
+        
+
+                      <td class="has-text-centered">
+            
+            
+                      <td class="has-text-centered">
+                        
+                      </td>
+                  </tr>
+    
+              </tbody>
+            </table>
           </div>
+
+          <br/>
+
+          <%= link_to 'Back to Event Details', events_path(id: params[:event_id]), class: "button is-fullwidth" %>
+
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
