@@ -2,86 +2,58 @@
 
 <%= link_to  'Back', root_path %>
 
-<h2 class="text-center text-muted"> Your Upcoming Events </h2>
-
-<table class="table table-hover table-bordered">
-  <thead class="table-dark">
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
- <tbody>
-    
-    <% @events.each do |event| %>
-
-
-      <% if current_user && event.date > Time.now %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-        <% if Time.now < event.date %>
-          <td> available </td>
-        <% else %>
-          <td><%= Enrollment.where(status: event.id).count %></td>
-        <% end %>
-        <td><%= link_to 'Show', event %></td>
-      </tr>
+<div class="top">
+  <div class="section">
+    <h2 class="title is-2">Upcoming Events</h2>
+    <div class="columns">
+      <% @events.upcoming.each do |event| %>
+        <div class="column is-3">
+          <div class="card">
+            <header class="card-header">
+              <%= link_to event.name, event_path(event), class: "card-header-title is-centered" %>
+            </header>
+            <div class="card-content">
+              <div class="content has-text-justified">
+                <%= event.description.truncate_words(12) %>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item is-narrow"><%= event.date %></p>
+              <p class="card-footer-item"><%= event.location %></p>
+            </footer>
+          </div>
+        </div>
       <% end %>
-    
-   
-  </tbody>
+    </div>
+  </div>
+</div>
 
-<% end %>
-</table>
 
-<h2 class="text-center text-muted"> Your Past Events </h2>
-
-<table class="table table-hover table-bordered">
-  <thead class="table-dark">
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
- <tbody>
-    
-    <% @events.each do |event| %>
-      <% if current_user  && event.date < Time.now %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-        <% if Time.now < event.date %>
-          <td> Not available </td>
-        <% else %>
-          <td><%= Enrollment.where(status: event.id).count %></td>
-        <% end %>
-        <td><%= link_to 'Show', event %></td>
-        <% if event.user_id == current_user.id %>
-        <% else %>
-        <td></td>
-        <td></td>
-        <% end %>
-      </tr>
-      
-    
-    <% end %>
-  </tbody>
-
-<% end %>
-</table>
+<div class="bottom">
+  <div class="section">
+    <h2 class="title is-2">Past Events</h2>
+    <div class="columns">
+      <% @events.past.each do |event| %>
+        <div class="column is-3">
+          <div class="card">
+            <header class="card-header">
+              <%= link_to event.name, event_path(event), class: "card-header-title is-centered" %>
+            </header>
+            <div class="card-content">
+              <div class="content has-text-justified">
+                <%= event.description.truncate_words(12) %>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item"><%= event.date %></p>
+              <p class="card-footer-item"><%= event.location %></p>
+            </footer>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 <h2 class="text-center text-muted"> Created Events </h2>
