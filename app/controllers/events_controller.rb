@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @past_events = previous_events
     @upcoming_events = upcoming_events
   end
-  
+
   def show
     @event = Event.find(params[:id])
   end
