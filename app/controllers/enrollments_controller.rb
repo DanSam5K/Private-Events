@@ -50,7 +50,7 @@ class EnrollmentsController < ApplicationController
       flash[:alert] = 'Your name is not on the invitation list'
     else
       flash[:notice] = "Thank you for signing up for the '#{@event.name}'!"
-      
+
     end
 
     redirect_to event_path(@event)
