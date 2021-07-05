@@ -47,9 +47,10 @@ class EnrollmentsController < ApplicationController
     @enrollment = Enrollment.find_by(event_id: params[:event_id], user_id: current_user.id)
     if @enrollment&.invited?
       @enrollment.accepted!
-      flash[:notice] = "Thank you for signing up for the '#{@event.name}'!"
-    else
       flash[:alert] = 'Your name is not on the invitation list'
+    else
+      flash[:notice] = "Thank you for signing up for the '#{@event.name}'!"
+      
     end
 
     redirect_to event_path(@event)

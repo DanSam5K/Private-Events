@@ -24,7 +24,7 @@
                     <% else %>
                       <td></td>
                     <% end %>
-                    <% if enrollment.nil? %>
+                    <% if enrollment.nil? || enrollment.status.nill? %>
                       <td class="has-text-centered">
                         <%= button_to "Invite", enrollments_path(event_id: params[:event_id], user_id: user.id), class: "button is-primary is-small" %>
                       </td>
