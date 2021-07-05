@@ -38,6 +38,10 @@ To get a local copy up and running follow these simple example steps.
 - Sign up for a session and create-events "secrets" or you can just watch them anonymously!
 
 Now, you can start interacting with application
+
+## Test
+- After Bundling and Installing all gem
+- Run `$rspec` to Test with Rspec and Capybara
 ## AUTHORS
 
 👤 **Daniel Samuel**
