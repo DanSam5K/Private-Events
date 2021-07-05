@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.current_user.build
     @past_events = previous_events
     @upcoming_events = upcoming_events
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.current_user.build(event_params)
     @user.save
     session[:user_id] = @user.id
     flash.notice = "User #{@user.name} successfully created! Thank you for signing up!"
