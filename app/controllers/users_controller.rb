@@ -21,6 +21,9 @@ class UsersController < ApplicationController
 
   def show
     @all_events = Event.all
+    @created_events = current_user.events
+    @past_events = current_user.attended_events.past
+    @upcoming_events = current_user.attended_events.upcoming
     @events = Event.where(user_id: current_user.id)
   end
 end
