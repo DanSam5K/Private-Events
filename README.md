@@ -2,9 +2,11 @@
 
 # Private Events
 
-> In this project, I build a site similar to a private [Eventbrite](https://www.eventbrite.com/) which allows users to create events and then manage user signups. Users can create events and send invitations and parties. Events take place at a specific date and at a location (which you can just store as a string, like “Andy’s House”).
-
-> A user can create events. A user can attend many events. An event can be attended by many users. This will require me to model many-to-many relationships and also to be very conscious about my foreign keys and class names.
+> In this project, I built a site similar to a private [Eventbrite](https://www.eventbrite.com/) which allows users to create events and then manage user signups. Users can create events and send invitations and parties. Events take place at a specific date and at a location (which you can just store as a string, like “Andy’s House”).
+- A user can create events. 
+- A user can attend many events. 
+- An event can be attended by many users. 
+> This will require me to model many-to-many relationships and also to be very conscious about my foreign keys and class names.
 
 ## BUILT WITH
 
@@ -14,6 +16,7 @@
 - Bulma
 - Devise
 - Integration test Rspec & Capybara
+
 ## Getting Started 
 
 - I've included a gem to improve the ruby coding (you can see how to install it the prerequisites below).
@@ -40,8 +43,10 @@ To get a local copy up and running follow these simple example steps.
 Now, you can start interacting with application
 
 ## Test
+
 - After Bundling and Installing all gem
 - Run `$rspec` to Test with Rspec and Capybara
+
 ## AUTHORS
 
 👤 **Daniel Samuel**
@@ -58,8 +63,6 @@ Give a ⭐️ if you like the project
 Feel free to check the [issues page](https://github.com/DanSam5K/Private-Events/issues) 
 - Show your support
 - Give a ⭐️ if you like this project!
-
-
 
 ## ACKNOWLEDGMENTS
 
